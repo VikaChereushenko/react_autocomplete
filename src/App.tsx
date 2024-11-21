@@ -7,8 +7,8 @@ import { Person } from './types/Person';
 
 export const App: React.FC = () => {
   const [query, setQuery] = useState('');
-  const [delay, setDelay] = useState(300);
-  const applyQuery = useCallback(debounce(setQuery, delay), []);
+  const delay = 300;
+  const applyQuery = useCallback(debounce(setQuery, delay), [delay]);
   const inputRef = useRef(null);
   const [isSelected, setSelected] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
