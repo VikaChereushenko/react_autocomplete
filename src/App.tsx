@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback, useRef } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import classNames from 'classnames';
 import debounce from 'lodash.debounce';
 import './App.scss';
@@ -9,7 +9,6 @@ export const App: React.FC = () => {
   const [query, setQuery] = useState('');
   const delay = 300;
   const applyQuery = useCallback(debounce(setQuery, delay), [delay]);
-  const inputRef = useRef(null);
   const [isSelected, setSelected] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [personInfo, setPersonInfo] = useState<Person | null>(null);
@@ -56,7 +55,6 @@ export const App: React.FC = () => {
           <div className="dropdown-trigger">
             <input
               type="text"
-              ref={inputRef}
               placeholder="Enter a part of the name"
               value={query}
               className="input"
